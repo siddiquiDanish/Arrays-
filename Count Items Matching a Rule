@@ -1,0 +1,43 @@
+// https://leetcode.com/problems/count-items-matching-a-rule/
+
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        
+        ArrayList<String> arrayList = null;
+        int count = 0;
+        
+        for(int i = 0;i<items.size();i++){
+            arrayList = new ArrayList<>();
+            
+            arrayList = (ArrayList)items.get(i);
+            
+            String temp = null;
+            
+            if(ruleKey.equalsIgnoreCase("type")){
+                
+                temp  = (String)arrayList.get(0);
+                if(temp.equalsIgnoreCase(ruleValue)){
+                    count++ ;
+                }
+                
+            }
+           else if(ruleKey.equalsIgnoreCase("color")){
+               
+                temp  = (String)arrayList.get(1);
+                if(temp.equalsIgnoreCase(ruleValue)){
+                    count++ ;
+                }
+            }
+           else if(ruleKey.equalsIgnoreCase("name")){
+               
+                temp  = (String)arrayList.get(2);
+                if(temp.equalsIgnoreCase(ruleValue)){
+                    count++ ;
+                }
+            }
+            
+            
+        }
+        return count;
+    }
+}
