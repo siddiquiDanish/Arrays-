@@ -1,0 +1,26 @@
+// https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/
+
+class Solution {
+       public static int oddCells(int m, int n, int[][] indices) {
+        int[][] res = new int[m][n];
+        int index;
+        for (int i = 0; i < indices.length; i++){
+            index = indices[i][0];
+            for (int j = 0; j < n; j++){
+                res[index][j]++;
+            }
+            index = indices[i][1];
+            for (int k= 0; k < m; k++){
+                res[k][index]++;
+            }
+        }
+        int count = 0;
+        for (int i = 0;i < m;i++){
+            for (int j = 0;j < n;j++){
+                if(res[i][j] % 2 == 1)
+                    count++;
+            }
+        }
+        return count;
+    }
+}
